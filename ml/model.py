@@ -2,6 +2,7 @@ import pickle
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 from ml.data import process_data
 # TODO: add necessary import
+from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
 
 # Optional: implement hyperparameter tuning.
 def train_model(X_train, y_train):
