@@ -3,6 +3,7 @@ from sklearn.metrics import fbeta_score, precision_score, recall_score
 from ml.data import process_data
 # TODO: add necessary import
 from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
+from sklearn.ensemble import RandomForestClassifier
 
 # Optional: implement hyperparameter tuning.
 def train_model(X_train, y_train):
@@ -22,8 +23,7 @@ def train_model(X_train, y_train):
     """
     # TODO: implement the function
     pass
-
-
+    
 def compute_model_metrics(y, preds):
     """
     Validates the trained machine learning model using precision, recall, and F1.
