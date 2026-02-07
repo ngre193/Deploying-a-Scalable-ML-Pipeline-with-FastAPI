@@ -16,11 +16,12 @@ from ml.model import (
 project_path = "Your path here"
 data_path = os.path.join(project_path, "data", "census.csv")
 print(data_path)
-data = csv.reader("census.csv") # your code here
+census_df = pd.read_csv("census.csv") # your code here
+census_df.head(15)
 
 # TODO: split the provided data to have a train dataset and a test dataset
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
-train, test = None, None# Your code here
+train, test = train_test_split(census_df, test_size=0.5) # Your code here
 
 # DO NOT MODIFY
 cat_features = [
@@ -40,7 +41,12 @@ X_train, y_train, encoder, lb = process_data(
     # use the train dataset 
     # use training=True
     # do not need to pass encoder and lb as input
-    )
+    train,
+    categorical_features=cat_features,
+    training=True,
+    encoder=encoder,
+    lb=lb,
+)
 
 X_test, y_test, _, _ = process_data(
     test,
@@ -52,7 +58,7 @@ X_test, y_test, _, _ = process_data(
 )
 
 # TODO: use the train_model function to train the model on the training dataset
-model = None # your code here
+model = train_model(X_train, y_train) # your code here
 
 # save the model and the encoder
 model_path = os.path.join(project_path, "model", "model.pkl")
@@ -66,7 +72,7 @@ model = load_model(
 ) 
 
 # TODO: use the inference function to run the model inferences on the test dataset.
-preds = None # your code here
+preds = inference(model, X_test) # your code here
 
 # Calculate and print the metrics
 p, r, fb = compute_model_metrics(y_test, preds)
@@ -81,6 +87,7 @@ for col in cat_features:
         p, r, fb = performance_on_categorical_slice(
             # your code here
             # use test, col and slicevalue as part of the input
+            test, col, slicevalue
         )
         with open("slice_output.txt", "a") as f:
             print(f"{col}: {slicevalue}, Count: {count:,}", file=f)
