@@ -41,21 +41,19 @@ X_train, y_train, encoder, lb = process_data(
     # use the train dataset 
     # use training=True
     # do not need to pass encoder and lb as input
-    X=X_train,
-    y=y_train,
     train,
     categorical_features=cat_features,
     label="Salary",
     training=True,
 )
 
-X_test, y_test, _, _ = process_data(
-    X=X_test,
-    y=y_test,
+X, X_test, y_test, _, _ = process_data(
     test,
     categorical_features=cat_features,
-    label=X,
+    label="salary",
     training=False,
+    encoder=encoder,
+    lb=lb,
 )
 
 # TODO: use the train_model function to train the model on the training dataset
