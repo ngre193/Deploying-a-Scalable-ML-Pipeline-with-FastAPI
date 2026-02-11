@@ -13,7 +13,7 @@ from ml.model import (
     train_model,
 )
 # TODO: load the census.csv data
-project_path = "Your path here"
+project_path = "data.py"
 data_path = os.path.join(project_path, "data", "census.csv")
 print(data_path)
 census_df = pd.read_csv(data_path) # your code here
@@ -37,15 +37,15 @@ cat_features = [
 
 # TODO: use the process_data function provided to process the data.
 X_train, y_train, encoder, lb = process_data(
+    # your code here
+    # use the train dataset 
+    # use training=True
+    # do not need to pass encoder and lb as input
     X=train,
     categorical_features=cat_features,
     label="salary",
     training=True,
 )
-    # your code here
-    # use the train dataset 
-    # use training=True
-    # do not need to pass encoder and lb as input
 
 X_test, y_test, _, _ = process_data(
     X=test,
