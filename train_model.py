@@ -41,14 +41,14 @@ X_train, y_train, encoder, lb = process_data(
     # use the train dataset 
     # use training=True
     # do not need to pass encoder and lb as input
-    X=X_train, y_train,
+    X=census_df,
     categorical_features=cat_features,
     label="salary",
     training=True,
 )
 
 X_test, y_test, _, _ = process_data(
-    X=X_test, y_test,
+    X=census_df,
     categorical_features=cat_features,
     label="salary",
     training=False,
