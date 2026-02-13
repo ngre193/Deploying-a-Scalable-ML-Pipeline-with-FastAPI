@@ -34,7 +34,6 @@ cat_features = [
     "sex",
     "native-country",
 ]
-
 # TODO: use the process_data function provided to process the data.
 X_train, y_train, encoder, lb = process_data(
     # your code here
