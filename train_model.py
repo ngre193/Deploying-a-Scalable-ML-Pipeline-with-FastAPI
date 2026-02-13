@@ -22,6 +22,10 @@ census_df.head(15)
 # TODO: split the provided data to have a train dataset and a test dataset
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
 train, test = train_test_split(census_df, test_size=0.2, random_state=678) # Your code here
+X_train = train.drop("salary", axis=1)
+X_test = test.drop("salary", axis=1)
+y_train = train["salary"]
+y_test = test["salary"]
 
 # DO NOT MODIFY
 cat_features = [
@@ -34,20 +38,21 @@ cat_features = [
     "sex",
     "native-country",
 ]
+
 # TODO: use the process_data function provided to process the data.
 X_train, y_train, encoder, lb = process_data(
     # your code here
     # use the train dataset 
     # use training=True
     # do not need to pass encoder and lb as input
-    train(X),
+    X_train,
     categorical_features=cat_features,
     label="salary",
     training=True,
 )
 
 X_test, y_test, _, _ = process_data(
-    test(X),
+    X_test,
     categorical_features=cat_features,
     label="salary",
     training=False,
