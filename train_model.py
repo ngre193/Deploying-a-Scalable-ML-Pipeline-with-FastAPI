@@ -41,7 +41,7 @@ X_train, y_train, encoder, lb = process_data(
     # use the train dataset 
     # use training=True
     # do not need to pass encoder and lb as input
-    train,
+    X=train,
     categorical_features=cat_features,
     label="salary",
     training=True,
