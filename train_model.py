@@ -17,11 +17,11 @@ project_path = os.getcwd()
 data_path = os.path.join(project_path, "data", "census.csv")
 print(data_path)
 census_df = pd.read_csv("census.csv") # your code here
-census_df.head(15)
+print(census_df.head(15))
 
 # TODO: split the provided data to have a train dataset and a test dataset
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
-train, test = train_test_split(census_df, test_size=0.2, random_state=678) # Your code here
+train, test = train_test_split(census_df, test_size=0.2, random_state=678),  # Your code here
 
 # DO NOT MODIFY
 cat_features = [
@@ -41,16 +41,14 @@ X_train, y_train, encoder, lb = process_data(
     # use the train dataset 
     # use training=True
     # do not need to pass encoder and lb as input
-    X_train,
-    y_train,
+    train,
     categorical_features=cat_features,
     label="salary",
     training=True,
 )
 
 X_test, y_test, _, _ = process_data(
-    X_test,
-    y_test,
+    test,
     categorical_features=cat_features,
     label="salary",
     training=False,
