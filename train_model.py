@@ -21,7 +21,7 @@ print(data)
 
 # TODO: split the provided data to have a train dataset and a test dataset
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
-train, test = train_test_split(data, test_size=0.2, random_state=42)  # Your code here
+train, test = train_test_split(data, test_size=0.2, random_state=678)  # Your code here
 
 # DO NOT MODIFY
 cat_features = [
