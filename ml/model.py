@@ -80,7 +80,7 @@ def save_model(model, path):
     """
     # TODO: implement the function
     with open(path, 'wb') as save_mod_cat_encoders:
-        pickle.dump(model, mod_cat_encoders)
+        pickle.dump(model, save_mod_cat_encoders)
 
 
 def load_model(path):
