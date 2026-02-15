@@ -22,8 +22,6 @@ print(data)
 # TODO: split the provided data to have a train dataset and a test dataset
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
 train, test = train_test_split(data, test_size=0.2, random_state=678)  # Your code here
-train_df = train
-test_df = test
 
 # DO NOT MODIFY
 cat_features = [
@@ -43,14 +41,14 @@ X_train, y_train, encoder, lb = process_data(
     # use the train dataset 
     # use training=True
     # do not need to pass encoder and lb as input
-    train_df,
+    train,
     categorical_features=cat_features,
     label="salary",
     training=True,
 )
 
 X_test, y_test, _, _ = process_data(
-    test_df,
+    test,
     categorical_features=cat_features,
     label="salary",
     training=False,
