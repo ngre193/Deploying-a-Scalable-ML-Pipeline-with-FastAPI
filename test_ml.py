@@ -12,8 +12,8 @@ def test_compute_model_metrics():
  # model.py file
     """
     # Your code here
-    cmm_list_1 = [0, 1, 0, 0, 1] # Calling array of binary values as an array per compute_model_metrics function
-    cmm_list_2 = [1, 0, 1, 1, 0] # Calling array of binary values as an array per compute_model_metrics function
+    cmm_list_1 = np.array([0, 1, 0, 0, 1]) # Calling array of binary values as an array per compute_model_metrics function
+    cmm_list_2 = np.array([1, 0, 1, 1, 0]) # Calling array of binary values as an array per compute_model_metrics function
     a, b, c = compute_model_metrics(cmm_list_1, cmm_list_2) # Calling the compute_model_metrics function for both arrays
     assert 0 <= a <= 1 # Asserting that Precision is between 0 and 1
     assert 0 <= b <= 1 # Asserting that Recall is between 0 and 1
@@ -27,8 +27,8 @@ def test_inference():
     """
     # Your code here
     inf_model = RandomForestClassifier() # Calling the model RandomForestClassifier
-    ti_x_data = [0, 0, 1, 1, 1] # Calling array of binary values as an array per inference function
-    ti_y_data = [1, 1, 0, 0, 0] # Calling array of binary values as an array per inference function
+    ti_x_data = np.array([0, 0, 1, 1, 1]) # Calling array of binary values as an array per inference function
+    ti_y_data = np.array([1, 1, 0, 0, 0]) # Calling array of binary values as an array per inference function
     inf_model.fit(ti_x_data, ti_y_data) # Fits the np.arrays to the model
     predict = inference(inf_model, ti_x_data) # Stores the inference function's predictions
     result = inf_model.predict(ti_x_data) # Stores the model's predictions
@@ -41,8 +41,8 @@ def test_train_model():
 # model.py file
     """
     # Your code here
-    tm_x_vals = [0, 0, 1, 0, 1] # Calling array of binary values as an array per train_model function
-    tm_y_vals = [1, 1, 0, 1, 0] # Calling array of binary values as an array per train_model function
+    tm_x_vals = np.array([0, 0, 1, 0, 1]) # Calling array of binary values as an array per train_model function
+    tm_y_vals = np.array([1, 1, 0, 1, 0]) # Calling array of binary values as an array per train_model function
     tm_model = train_model(tm_x_vals, tm_y_vals) # Calling the train_model function for both arrays
     assert isinstance(tm_model, RandomForestClassifier) # Ensuring if there is a RandomForestClassifier instance
     assert tm_model.n_estimators > 0 # Ensuring model is fitted properly
