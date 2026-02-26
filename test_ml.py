@@ -26,12 +26,11 @@ def test_inference():
 # model.py file
     """
     # Your code here
-    inf_model = RandomForestClassifier() # Calling the model RandomForestClassifier
+    path_model = os.path.join(os.getcwd(), "model", "model.pkl") 
+    saved_model = load_model(path_model)
     ti_x_data = np.array([0, 0, 1, 1, 1]) # Calling array of binary values as an array per inference function
-    ti_y_data = np.array([1, 1, 0, 0, 0]) # Calling array of binary values as an array per inference function
-    inf_model.fit(ti_x_data, ti_y_data) # Fits the np.arrays to the model
-    predict = inference(inf_model, ti_x_data) # Stores the inference function's predictions
-    result = inf_model.predict(ti_x_data) # Stores the model's predictions
+    predict = inference(saved_model, ti_x_data) # Stores the inference function's predictions
+    result = saved_model.predict(ti_x_data) # Stores the model's predictions
     assert np.array_equal(predict, result) # Ensuring the two predictions are equal
 
 # TODO: implement the third test. Change the function name and input as needed
@@ -41,7 +40,7 @@ def test_train_model():
 # model.py file
     """
     # Your code here
-    tm_x_vals = np.array([0, 0, 1, 0, 1]) # Calling array of binary values as an array per train_model function
+    tm_x_vals = np.array([[0, 0, 1, 0, 1],[0, 0, 1, 0, 1],[0, 0, 1, 0, 1],[0, 0, 1, 0, 1],[0, 0, 1, 0, 1]]) # Calling array of binary values as an array per train_model function
     tm_y_vals = np.array([1, 1, 0, 1, 0]) # Calling array of binary values as an array per train_model function
     tm_model = train_model(tm_x_vals, tm_y_vals) # Calling the train_model function for both arrays
     assert isinstance(tm_model, RandomForestClassifier) # Ensuring if there is a RandomForestClassifier instance
@@ -49,4 +48,3 @@ def test_train_model():
 
 # if __name__ == "__main__":
     # pytest.main(['-v', 'test_ml.py'])
-
