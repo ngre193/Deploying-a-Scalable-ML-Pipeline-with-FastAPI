@@ -3,7 +3,7 @@ import pytest
 from ml.model import compute_model_metrics, inference, train_model, load_model
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 from sklearn.ensemble import RandomForestClassifier
-from np import array
+import numpy as np
 
 # TODO: implement the first test. Change the function name and input as needed
 def test_compute_model_metrics():
