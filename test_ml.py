@@ -29,7 +29,7 @@ def test_inference():
     # Your code here
     path_model = os.path.join(os.getcwd(), "model", "model.pkl") 
     saved_model = load_model(path_model)
-    ti_x_data = np.array([[0, 0, 1, 0, 1],[0, 0, 1, 0, 1],[0, 0, 1, 0, 1],[0, 0, 1, 0, 1],[0, 0, 1, 0, 1]]) # Calling array of binary values as an array per inference function
+    ti_x_data = np.random.rand(5,108) # Calling array of binary values as an array per inference function
     predict = inference(saved_model, ti_x_data) # Stores the inference function's predictions
     result = saved_model.predict(ti_x_data) # Stores the model's predictions
     assert np.array_equal(predict, result) # Ensuring the two predictions are equal
